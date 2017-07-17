@@ -17,8 +17,9 @@ app.get("/", function (req, res) { // Serve the homepage
 });
 
 app.get("/api/whoami", function (req, res) {
+  var filterLog = /test/;
   var response = {
-    ipaddress: req.get('REMOTE_ADDR'),
+    ipaddress: req.headers['x-forwarded-for'],
     language: req.get("Accept-Language"),
     software: req.get("User-Agent")
   };
