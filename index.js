@@ -15,4 +15,6 @@ app.get("/", function (req, res) { // Serve the homepage
   });
 });
 
-app.get("/api/whoami", function (res, re))
+app.get("/api/whoami", function (req, res) {
+  res.end();
+});
