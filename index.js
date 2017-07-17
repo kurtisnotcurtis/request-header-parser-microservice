@@ -18,12 +18,12 @@ app.get("/", function (req, res) { // Serve the homepage
 
 app.get("/api/whoami", function (req, res) {
   var response = {
-    ipaddress: req.ip,
-    language: null,
+    ipaddress: req.get('REMOTE_ADDR'),
+    language: req.get("Accept-Language"),
     software: req.get("User-Agent")
   };
-  
-  res.json(req);
+  console.log(req);
+  res.json(response);
 });
 
 app.listen(port);
