@@ -17,6 +17,11 @@ app.get("/", function (req, res) { // Serve the homepage
 });
 
 app.get("/api/whoami", function (req, res) {
+  var response = {
+    ipaddress: req.ip,
+    language: null,
+    software: req.get('User-Agent
+  };
   
   res.json();
 });
