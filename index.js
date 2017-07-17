@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.get("/", function (req, res) { // Serve the homepage
-  var fileName = path.join("views", "index.html");
+  var fileName = path.join(__dirname, "views", "index.html");
   res.sendFile(fileName, function (err) {
     if (err) {
       console.log(err);
@@ -20,10 +20,10 @@ app.get("/api/whoami", function (req, res) {
   var response = {
     ipaddress: req.ip,
     language: null,
-    software: req.get('User-Agent
+    software: req.get("User-Agent")
   };
   
-  res.json();
+  res.json(req);
 });
 
-app.listen();
+app.listen(port);
