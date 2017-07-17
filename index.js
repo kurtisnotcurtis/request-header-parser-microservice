@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.get("/", function (req, res) { // Serve the homepage
@@ -16,5 +17,8 @@ app.get("/", function (req, res) { // Serve the homepage
 });
 
 app.get("/api/whoami", function (req, res) {
-  res.end();
+  
+  res.json();
 });
+
+app.listen();
